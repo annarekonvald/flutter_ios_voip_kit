@@ -1,4 +1,4 @@
-# flutter_ios_voip_kit
+# flutter_xto_ios_voip_kit
 
 One-to-one video call using CallKit and PushKit with flutter iOS app.
 
