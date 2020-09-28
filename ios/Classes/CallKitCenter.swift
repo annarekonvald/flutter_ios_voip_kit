@@ -1,6 +1,6 @@
 //
 //  CallKitCenter.swift
-//  flutter_ios_voip_kit
+//  flutter_xto_ios_voip_kit
 //
 //  Created by 須藤将史 on 2020/07/02.
 //

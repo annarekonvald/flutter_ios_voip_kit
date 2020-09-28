@@ -69,7 +69,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_ios_voip_kit:
+  flutter_xto_ios_voip_kit:
     dependency: "direct main"
     description:
       path: ".."

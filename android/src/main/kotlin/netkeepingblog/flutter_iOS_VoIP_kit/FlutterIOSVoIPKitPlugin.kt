@@ -18,7 +18,7 @@ public class FlutterIOSVoIPKitPlugin: FlutterPlugin, MethodCallHandler {
   private lateinit var channel : MethodChannel
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_ios_voip_kit")
+    channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutter_xto_ios_voip_kit")
     channel.setMethodCallHandler(this);
   }
 
@@ -34,7 +34,7 @@ public class FlutterIOSVoIPKitPlugin: FlutterPlugin, MethodCallHandler {
   companion object {
     @JvmStatic
     fun registerWith(registrar: Registrar) {
-      val channel = MethodChannel(registrar.messenger(), "flutter_ios_voip_kit")
+      val channel = MethodChannel(registrar.messenger(), "flutter_xto_ios_voip_kit")
       channel.setMethodCallHandler(FlutterIOSVoIPKitPlugin())
     }
   }

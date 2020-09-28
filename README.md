@@ -18,7 +18,7 @@ We need to use CallKit to handle incoming VoIP notifications from iOS 13. [Check
 
 ### 1. install
 
-- Add `flutter_ios_voip_kit` as a dependency in your pubspec.yaml file.
+- Add `flutter_xto_ios_voip_kit` as a dependency in your pubspec.yaml file.
 
 ### 2. setting Capability in Xcode
 

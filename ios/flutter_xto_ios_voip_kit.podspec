@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name             = 'flutter_xto_ios_voip_kit'
-  s.version          = '0.1.2'
+  s.version          = '0.1.2+1'
   s.summary          = 'A new flutter plugin project.'
   s.description      = <<-DESC
 A new flutter plugin project.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://example.com'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'sutou.masasi@gmail.com' }
   s.source           = { :path => '.' }

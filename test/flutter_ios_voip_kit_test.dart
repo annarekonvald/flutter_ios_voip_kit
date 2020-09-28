@@ -2,7 +2,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('flutter_ios_voip_kit');
+  const MethodChannel channel = MethodChannel('flutter_xto_ios_voip_kit');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
