@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ios_voip_kit/call_state_type.dart';
-import 'package:flutter_ios_voip_kit/channel_type.dart';
+import 'package:flutter_xto_ios_voip_kit/call_state_type.dart';
+import 'package:flutter_xto_ios_voip_kit/channel_type.dart';
 
 final MethodChannel _channel = MethodChannel(ChannelType.method.name);
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ios_voip_kit_example/incoming_call_page.dart';
-import 'package:flutter_ios_voip_kit_example/outgoing_call_page.dart';
+import 'package:flutter_xto_ios_voip_kit_example/incoming_call_page.dart';
+import 'package:flutter_xto_ios_voip_kit_example/outgoing_call_page.dart';
 
 void main() {
   runApp(MaterialApp(

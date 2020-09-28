@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ios_voip_kit/call_state_type.dart';
-import 'package:flutter_ios_voip_kit/flutter_ios_voip_kit.dart';
+import 'package:flutter_xto_ios_voip_kit/call_state_type.dart';
+import 'package:flutter_xto_ios_voip_kit/flutter_ios_voip_kit.dart';
 import 'package:uuid/uuid.dart';
 
 class IncomingCallPage extends StatefulWidget {
