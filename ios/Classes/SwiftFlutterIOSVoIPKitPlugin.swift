@@ -123,6 +123,31 @@ public class SwiftFlutterIOSVoIPKitPlugin: NSObject {
             result(nil)
         }
     }
+
+    private func displayIncomingCall(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+        guard let args = call.arguments as? [String: Any],
+            let uuid = args["uuid"] as? String,
+            let callerId = args["callerId"] as? String,
+            let callerName = args["callerName"] as? String else {
+                result(FlutterError(code: "InvalidArguments displayIncomingCall", message: nil, details: nil))
+                return
+        }
+
+        self.voIPCenter.callKitCenter.incomingCall(uuidString: uuid,
+                                                   callerId: callerId,
+                                                   callerName: callerName) { (error) in
+            if let error = error {
+                print("❌ displayIncomingCall error: \(error.localizedDescription)")
+                result(FlutterError(code: "displayIncomingCall",
+                                    message: error.localizedDescription,
+                                    details: nil))
+                return
+            }
+
+
+            result(nil)
+        }
+    }
 }
 
 extension SwiftFlutterIOSVoIPKitPlugin: UNUserNotificationCenterDelegate {
@@ -147,6 +172,7 @@ extension SwiftFlutterIOSVoIPKitPlugin: FlutterPlugin {
         case callConnected
         case requestAuthLocalNotification
         case testIncomingCall
+        case displayIncomingCall
     }
 
     // MARK: - FlutterPlugin（method channel）
@@ -175,6 +201,9 @@ extension SwiftFlutterIOSVoIPKitPlugin: FlutterPlugin {
                 self.requestAuthLocalNotification(call, result: result)
             case .testIncomingCall:
                 self.testIncomingCall(call, result: result)
+            case .displayIncomingCall:
+                self.displayIncomingCall(call, result: result)
+                
         }
     }
 }

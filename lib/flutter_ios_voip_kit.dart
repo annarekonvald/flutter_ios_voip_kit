@@ -177,6 +177,25 @@ class FlutterIOSVoIPKit {
     });
   }
 
+  Future<void> displayIncomingCall({
+    @required String uuid,
+    @required String callerId,
+    @required String callerName,
+  }) async {
+    print('🎈 displayIncomingCall: $uuid, $callerId, $callerName');
+
+    // final isRelease = const bool.fromEnvironment('dart.vm.product');
+    // if (Platform.isAndroid || isRelease) {
+    //   return null;
+    // }
+
+    return await _channel.invokeMethod('displayIncomingCall', {
+      'uuid': uuid,
+      'callerId': callerId,
+      'callerName': callerName,
+    });
+  }
+
   /// event channel
 
   void _eventListener(dynamic event) {
