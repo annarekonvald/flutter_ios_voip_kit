@@ -69,6 +69,10 @@ public class SwiftFlutterIOSVoIPKitPlugin: NSObject {
 
         self.voIPCenter.callKitCenter.unansweredIncomingCall()
 
+        // tuanna: add
+        self.voIPCenter.callKitCenter.endCall()
+        // tuanna: end
+
         if (skipLocalNotification) {
             result(nil)
             return
@@ -110,7 +114,7 @@ public class SwiftFlutterIOSVoIPKitPlugin: NSObject {
                 return
         }
 
-        self.voIPCenter.callKitCenter.incomingCall(uuidString: uuid,
+        self.voIPCenter.callKitCenter.incomingCall(payload: args, uuidString: uuid,
                                                    callerId: callerId,
                                                    callerName: callerName) { (error) in
             if let error = error {
@@ -133,7 +137,7 @@ public class SwiftFlutterIOSVoIPKitPlugin: NSObject {
                 return
         }
 
-        self.voIPCenter.callKitCenter.incomingCall(uuidString: uuid,
+        self.voIPCenter.callKitCenter.incomingCall(payload:args, uuidString: uuid,
                                                    callerId: callerId,
                                                    callerName: callerName) { (error) in
             if let error = error {

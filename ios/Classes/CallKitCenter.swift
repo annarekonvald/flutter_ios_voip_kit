@@ -13,6 +13,7 @@ class CallKitCenter: NSObject {
 
     private let controller = CXCallController()
     private let iconName: String
+    private(set) var payload: Any?
     private let localizedName: String
     private let supportVideo: Bool
     private let skipRecallScreen: Bool
@@ -69,7 +70,8 @@ class CallKitCenter: NSObject {
         }
     }
 
-    func incomingCall(uuidString: String, callerId: String, callerName: String, completion: @escaping (Error?) -> Void) {
+    func incomingCall(payload: Any, uuidString: String, callerId: String, callerName: String, completion: @escaping (Error?) -> Void) {
+        self.payload = payload
         self.uuidString = uuidString
         self.incomingCallerId = callerId
         self.incomingCallerName = callerName
@@ -107,11 +109,14 @@ class CallKitCenter: NSObject {
     }
 
     func endCall() {
+
         let endCallAction = CXEndCallAction(call: self.uuid)
         let transaction = CXTransaction(action: endCallAction)
         self.controller.request(transaction) { error in
             if let error = error {
                 print("❌ CXEndCallAction error: \(error.localizedDescription)")
+            } else {
+                print("End Call Success")
             }
         }
     }
@@ -129,6 +134,7 @@ class CallKitCenter: NSObject {
     }
 
     func disconnected(reason: CXCallEndedReason) {
+        self.payload = nil
         self.uuidString = nil
         self.incomingCallerId = nil
         self.incomingCallerName = nil

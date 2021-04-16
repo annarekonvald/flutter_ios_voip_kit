@@ -9,13 +9,14 @@ import 'package:flutter_xto_ios_voip_kit/channel_type.dart';
 final MethodChannel _channel = MethodChannel(ChannelType.method.name);
 
 typedef IncomingPush = void Function(
-  Map<String, dynamic> payload,
-);
+    Map<String, dynamic> payload,
+    );
 
 typedef IncomingAction = void Function(
-  String uuid,
-  String callerId,
-);
+    Map<dynamic, dynamic> payload,
+    String uuid,
+    String callerId,
+    );
 
 class FlutterIOSVoIPKit {
   static FlutterIOSVoIPKit get instance => _getInstance();
@@ -53,6 +54,7 @@ class FlutterIOSVoIPKit {
   Future<void> dispose() async {
     print('🎈 dispose');
 
+    _instance = null;
     await _eventSubscription?.cancel();
   }
 
@@ -184,11 +186,6 @@ class FlutterIOSVoIPKit {
   }) async {
     print('🎈 displayIncomingCall: $uuid, $callerId, $callerName');
 
-    // final isRelease = const bool.fromEnvironment('dart.vm.product');
-    // if (Platform.isAndroid || isRelease) {
-    //   return null;
-    // }
-
     return await _channel.invokeMethod('displayIncomingCall', {
       'uuid': uuid,
       'callerId': callerId,
@@ -222,6 +219,7 @@ class FlutterIOSVoIPKit {
         }
 
         onDidAcceptIncomingCall(
+          map['payload'],
           map['uuid'],
           map['incoming_caller_id'],
         );
@@ -234,6 +232,7 @@ class FlutterIOSVoIPKit {
         }
 
         onDidRejectIncomingCall(
+          map['payload'],
           map['uuid'],
           map['incoming_caller_id'],
         );
