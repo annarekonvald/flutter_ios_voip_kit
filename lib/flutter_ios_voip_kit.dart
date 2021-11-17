@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_xto_ios_voip_kit/call_state_type.dart';
 import 'package:flutter_xto_ios_voip_kit/channel_type.dart';
@@ -19,16 +18,16 @@ typedef IncomingAction = void Function(
     );
 
 class FlutterIOSVoIPKit {
-  static FlutterIOSVoIPKit? get instance => _getInstance();
+  static FlutterIOSVoIPKit get instance => _getInstance();
   static FlutterIOSVoIPKit? _instance;
-  static FlutterIOSVoIPKit? _getInstance() {
+  static FlutterIOSVoIPKit _getInstance() {
     if (_instance == null) {
       _instance = FlutterIOSVoIPKit._internal();
     }
-    return _instance;
+    return _instance!;
   }
 
-  factory FlutterIOSVoIPKit() => _getInstance()!;
+  factory FlutterIOSVoIPKit() => _getInstance();
 
   FlutterIOSVoIPKit._internal() {
     if (Platform.isAndroid) {
@@ -53,8 +52,6 @@ class FlutterIOSVoIPKit {
 
   Future<void> dispose() async {
     print('🎈 dispose');
-
-    _instance = null;
     await _eventSubscription?.cancel();
   }
 
