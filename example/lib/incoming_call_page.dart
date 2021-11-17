@@ -24,7 +24,7 @@ class _IncomingCallPageState extends State<IncomingCallPage> {
   void initState() {
     super.initState();
 
-    voIPKit.onDidReceiveIncomingPush = (
+  voIPKit.onDidReceiveIncomingPush = (
       Map<String, dynamic> payload,
     ) async {
       /// Notifies device of VoIP notifications(PushKit) with curl or your server(See README.md).
@@ -34,6 +34,7 @@ class _IncomingCallPageState extends State<IncomingCallPage> {
     };
 
     voIPKit.onDidRejectIncomingCall = (
+      Map<dynamic, dynamic> payload,
       String uuid,
       String callerId,
     ) {
@@ -51,6 +52,7 @@ class _IncomingCallPageState extends State<IncomingCallPage> {
     };
 
     voIPKit.onDidAcceptIncomingCall = (
+      Map<dynamic, dynamic> payload,
       String uuid,
       String callerId,
     ) {
