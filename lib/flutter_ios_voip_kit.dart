@@ -13,8 +13,8 @@ typedef IncomingPush = void Function(
 
 typedef IncomingAction = void Function(
     Map<dynamic, dynamic>? payload,
-    String? uuid,
-    String? callerId,
+    String uuid,
+    String callerId,
     );
 
 class FlutterIOSVoIPKit {
