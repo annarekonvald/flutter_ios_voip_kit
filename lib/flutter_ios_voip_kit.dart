@@ -12,7 +12,7 @@ typedef IncomingPush = void Function(
     );
 
 typedef IncomingAction = void Function(
-    Map<dynamic, dynamic>? payload,
+    Map<dynamic, dynamic> payload,
     String uuid,
     String callerId,
     );
